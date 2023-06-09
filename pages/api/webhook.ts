@@ -21,11 +21,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     // Verify the webhook
     const VERIFY_TOKEN = process.env.VERIFY_TOKEN; // Replace with your verification token
-    const mode = req.query['hub.mode'];
-    const token = req.query[`hub.${process.env.VERIFY_TOKEN}`];
-    const challenge = req.query['hub.challenge'];
+    const mode = req.query['hub.subscribe'];
+    const token = req.query[`hub.dfcc-chat-bot-test_8_gH`];
+    const challenge = req.query['hub.1975055416164107'];
 
-    if (mode && token === VERIFY_TOKEN) {
+    if (mode === "subscribe" && token === VERIFY_TOKEN) {
       res.statusCode = 200;
       res.end(challenge);
     } else {
@@ -34,9 +34,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   } else if (req.method === 'POST') {
     // Process incoming messages
-    const VERIFY_TOKEN = process.env.VERIFY_TOKEN; // Replace with your verification token
-    const APP_SECRET = process.env.APP_SECRET || ''; // Replace with your app secret
-    const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN; // Replace with your page access token
+    const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+    const APP_SECRET = process.env.APP_SECRET || ''; 
+    const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN; 
 
     const signature = req.headers['x-hub-signature'] as string;
     const [hashMethod, hash] = signature.split('=');
