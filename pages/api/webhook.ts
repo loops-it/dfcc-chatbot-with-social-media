@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               id: senderId,
             },
             message: {
-              text: 'This is your chatbot response!',
+              text: 'Hi',
             },
           };
 
