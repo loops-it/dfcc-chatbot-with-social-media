@@ -20,7 +20,7 @@ interface WebhookRequestBody {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     // Verify the webhook
-    const VERIFY_TOKEN = 'your-verification-token'; // Replace with your verification token
+    const VERIFY_TOKEN = 'dfcc-chat-bot-test_8_gH'; // Replace with your verification token
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
     const challenge = req.query['hub.challenge'];
@@ -34,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   } else if (req.method === 'POST') {
     // Process incoming messages
-    const VERIFY_TOKEN = 'your-verification-token'; // Replace with your verification token
+    const VERIFY_TOKEN = 'dfcc-chat-bot-test_8_gH'; // Replace with your verification token
     const APP_SECRET = 'your-app-secret'; // Replace with your app secret
     const PAGE_ACCESS_TOKEN = 'your-page-access-token'; // Replace with your page access token
 
