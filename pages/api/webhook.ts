@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Verify the webhook
     const VERIFY_TOKEN = process.env.VERIFY_TOKEN; // Replace with your verification token
     const mode = req.query['hub.mode'];
-    const token = req.query['hub.verify_token'];
+    const token = req.query[`hub.${process.env.VERIFY_TOKEN}`];
     const challenge = req.query['hub.challenge'];
 
     if (mode && token === VERIFY_TOKEN) {
