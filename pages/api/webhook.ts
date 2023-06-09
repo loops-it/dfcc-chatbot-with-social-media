@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Process incoming messages
     const VERIFY_TOKEN = 'dfcc-chat-bot-test_8_gH'; // Replace with your verification token
     const APP_SECRET = 'your-app-secret'; // Replace with your app secret
-    const PAGE_ACCESS_TOKEN = 'your-page-access-token'; // Replace with your page access token
+    const PAGE_ACCESS_TOKEN = 'EAAcETWx9ZCwsBAPvptwKpHVbBqWZCIfsRaSKVZCf7l9ytOLxzzKrDkWOOkWwGmoToi0QQGpUEHbDb2IzIwvTJOQOzzIjPQGyyJQKh9r7ZAKhqepvPZCQlVd6HUbOrpZAHbAUwMI3czZBs7NsgybeDpPuUrj2jhoKXWKTrUhn1rsCgMeK5JACRqZA'; // Replace with your page access token
 
     const signature = req.headers['x-hub-signature'] as string;
     const [hashMethod, hash] = signature.split('=');
