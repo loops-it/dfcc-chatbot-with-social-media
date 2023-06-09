@@ -20,12 +20,12 @@ interface WebhookRequestBody {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     // Verify the webhook
-    const VERIFY_TOKEN = process.env.VERIFY_TOKEN; // Replace with your verification token
-    const mode = req.query['hub.subscribe'];
-    const token = req.query[`hub.dfcc-chat-bot-test_8_gH`];
-    const challenge = req.query['hub.1975055416164107'];
+    const VERIFY_TOKEN = process.env.VERIFY_TOKEN; 
+    const mode = req.query['hub.mode'];
+    const token = req.query[`hub.verify_token`];
+    const challenge = req.query['hub.challenge'];
 
-    if (mode === "subscribe" && token === VERIFY_TOKEN) {
+    if (mode === "subscribe" && token === "dfcc-chat-bot-test_8_gH") {
       res.statusCode = 200;
       res.end(challenge);
     } else {
