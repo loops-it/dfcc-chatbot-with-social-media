@@ -75,6 +75,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               },
               body: JSON.stringify(response),
             });
+            console.log('Message sent successfully');
           } catch (error) {
             console.error('Error sending message:', error);
           }
